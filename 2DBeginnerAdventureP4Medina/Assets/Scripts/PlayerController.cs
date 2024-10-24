@@ -9,43 +9,22 @@ public class PlayerControllerTutorialUpdates : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 10;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float horizontal = 0.0f;
-        if (Keyboard.current.leftArrowKey.isPressed)
-        {
-            horizontal = -1.0f; 
-        }
-        else if (Keyboard.current.rightArrowKey.isPressed)
-        {
-            horizontal = 1.0f;
-        }
-        Debug.Log(horizontal);
-
-      
-
-
-        float vertical = 0.0f;
-        if (Keyboard.current.upArrowKey.isPressed)
-        {
-            vertical = 1.0f;
-        }
-        else if (Keyboard.current.downArrowKey.isPressed)
-        {
-            vertical = -1.0f;
-        }
-        Debug.Log(vertical);
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
 
         Vector2 position = transform.position;
-        position.x = position.x + 0.1f * horizontal;
-        position.x = position.x + +0.1f * vertical;
-        
- 
-        transform.position = position;
+        position.x = position.x + 5.0f * horizontal * Time.deltaTime;
+        position.y = position.y + 5.0f * vertical * Time.deltaTime;
 
+        transform.position = position;
     }
+
 }
+
