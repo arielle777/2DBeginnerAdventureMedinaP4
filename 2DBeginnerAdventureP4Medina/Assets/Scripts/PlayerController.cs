@@ -6,9 +6,14 @@ using UnityEngine.InputSystem;
 
 public class PlayerControllerTutorialUpdates : MonoBehaviour
 {
+    Rigidbody2D rigidbody2d;
+    float horizontal;
+    float vertical;
+    public InputAction LeftAction;
     // Start is called before the first frame update
     void Start()
     {
+       rigidbody2d=GetComponent<Rigidbody2D>();
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 10;
     }
@@ -16,15 +21,14 @@ public class PlayerControllerTutorialUpdates : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+       horizontal = Input.GetAxis("Horizontal");
+       vertical = Input.GetAxis("Vertical");
 
-        Vector2 position = transform.position;
-        position.x = position.x + 5.0f * horizontal * Time.deltaTime;
-        position.y = position.y + 5.0f * vertical * Time.deltaTime;
-
-        transform.position = position;
     }
-
+  void FixedUpdate()
+    {
+        Vector2 position = transform.position;
+        position
+    }
 }
 
