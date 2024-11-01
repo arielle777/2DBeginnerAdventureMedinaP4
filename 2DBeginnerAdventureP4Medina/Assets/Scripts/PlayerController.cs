@@ -6,8 +6,12 @@ using UnityEngine.InputSystem;
 
 public class PlayerControllerTutorialUpdates : MonoBehaviour
 {
+    public float speed = 7.0f;
     public int maxHealth = 5;
-    int currretnHealth;
+    public float timeInvicible = 5;
+    public int health { get { return currentHealth; } }
+    int currentHealth;
+
 
     Rigidbody2D rigidbody2d;
     float horizontal;
@@ -16,8 +20,9 @@ public class PlayerControllerTutorialUpdates : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       rigidbody2d = GetComponent<Rigidbody2D>();
-        currretnHealth = maxHealth;
+        rigidbody2d = GetComponent<Rigidbody2D>();
+        currentHealth = maxHealth;
+        currentHealth = 1;
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 10;
     }
@@ -29,16 +34,20 @@ public class PlayerControllerTutorialUpdates : MonoBehaviour
         vertical = Input.GetAxis("Vertical");
     }
 
-   void FixedUpdate()
+    void FixedUpdate()
     {
-        
-     Vector2 position = rigidbody2d.position;
-        position.x = position.x + 7.0f * horizontal * Time.deltaTime;
-        position.y = position.y + 7.0f * vertical * Time.deltaTime;  
-       rigidbody2d.MovePosition(position);
+
+        Vector2 position = rigidbody2d.position;
+        position.x = position.x + speed * horizontal * Time.deltaTime;
+        position.y = position.y + speed * vertical * Time.deltaTime;
+        rigidbody2d.MovePosition(position);
     }
-    void ChangeHealth(int amount)
-   
+    public void ChangeHealth(int amount)
+    {
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        Debug.Log(currentHealth + "/" + maxHealth);
     }
 }
+    
+
 
