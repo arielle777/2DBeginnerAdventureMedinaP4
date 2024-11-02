@@ -45,9 +45,13 @@ public class EnemyController : MonoBehaviour
 
         rigidbody2d.MovePosition(position);
     }
-    void OnCollisionEnter2D(Collision2D other);
-        if 
+    void OnCollisionEnter2D(Collision2D other)       
     {
-        
+        PlayerControllerTutorialUpdates player = other.gameObject.GetComponent<PlayerControllerTutorialUpdates>();
+            if (player != null)
+        {
+            player.ChangeHealth(-1);
+        }
     }
 }
+
