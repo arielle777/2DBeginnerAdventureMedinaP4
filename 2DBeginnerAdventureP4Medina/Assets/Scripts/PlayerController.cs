@@ -6,17 +6,22 @@ using UnityEngine.InputSystem;
 
 public class PlayerControllerTutorialUpdates : MonoBehaviour
 {
+    
     public float speed = 7.0f;
     public int maxHealth = 5;
-    public float timeInvicible = 5;
+    public float timeInvicible = 2;
     public int health { get { return currentHealth; } }
     int currentHealth;
+    bool isInvincible;
+    float invincibleTimer;
 
-
+   
+    
     Rigidbody2D rigidbody2d;
     float horizontal;
     float vertical;
     public InputAction LeftAction;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +37,14 @@ public class PlayerControllerTutorialUpdates : MonoBehaviour
     {
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
+
+        if (isInvincible)
+        {
+            invincibleTimer -= Time.deltaTime;
+            if (invincibleTimer < 0) ;
+            { isInvincible = false;
+            }
+        }
     }
 
     void FixedUpdate()
@@ -44,10 +57,20 @@ public class PlayerControllerTutorialUpdates : MonoBehaviour
     }
     public void ChangeHealth(int amount)
     {
+        if(amount < 0 )
+        {
+            if (isInvincible)
+            {
+                return;
+            }
+            isInvincible = true;
+            invincibleTimer = timeInvicible;
+        }
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         Debug.Log(currentHealth + "/" + maxHealth);
     }
 }
+
     
 
 

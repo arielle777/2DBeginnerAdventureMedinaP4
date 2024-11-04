@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 
 public class EnemyController : MonoBehaviour
 {
+
     public float speed = 3.0f;
     public bool vertical;
     public float changeTime = 3.0f;
@@ -24,12 +25,12 @@ public class EnemyController : MonoBehaviour
     {
         timer -= Time.deltaTime;
         if (timer < 0)
-        { 
+        {
             direction = -direction;
             timer = changeTime;
         }
     }
-  void FixedUpdate()
+    void FixedUpdate()
     {
         Vector2 position = rigidbody2d.position;
         if (vertical)
@@ -41,14 +42,14 @@ public class EnemyController : MonoBehaviour
         {
             position.x = position.x + Time.deltaTime * speed * direction;
         }
-      
+
 
         rigidbody2d.MovePosition(position);
     }
-    void OnCollisionEnter2D(Collision2D other)       
+    void OnCollisionEnter2D(Collision2D other)
     {
         PlayerControllerTutorialUpdates player = other.gameObject.GetComponent<PlayerControllerTutorialUpdates>();
-            if (player != null)
+        if (player != null)
         {
             player.ChangeHealth(-1);
         }
