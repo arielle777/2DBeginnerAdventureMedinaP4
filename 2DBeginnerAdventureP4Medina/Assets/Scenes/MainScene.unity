@@ -1969,6 +1969,24 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 921cd3c85ab56e0488f051c7b189ecac, type: 3}
+--- !u!1 &916748620 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8736474792904243159, guid: 66f4346839d1969439a8d25342d36ba4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1175488911}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &916748625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 916748620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc329fa128abfc64c9b117d43e96dcac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &970258272
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2588,10 +2606,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: DamageZone (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 549566930873298421, guid: 66f4346839d1969439a8d25342d36ba4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8736474792904243159, guid: 66f4346839d1969439a8d25342d36ba4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 916748625}
   m_SourcePrefab: {fileID: 100100000, guid: 66f4346839d1969439a8d25342d36ba4, type: 3}
 --- !u!114 &1273958441
 MonoBehaviour:
@@ -2766,6 +2789,7 @@ GameObject:
   - component: {fileID: 1637502097}
   - component: {fileID: 1637502099}
   - component: {fileID: 1637502098}
+  - component: {fileID: 1637502100}
   m_Layer: 0
   m_Name: Tilemap
   m_TagString: Untagged
@@ -2782,7 +2806,7 @@ Transform:
   m_GameObject: {fileID: 1637502093}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.3498, y: 6.3, z: 0}
+  m_LocalPosition: {x: -11.1, y: 6.9, z: 0}
   m_LocalScale: {x: 6.174574, y: 6.752467, z: 2.6670895}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5554,14 +5578,6 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 1637502097}
     m_ColliderPaths:
-    - - X: -370474432
-        Y: 337623360
-      - X: -740948864
-        Y: 337623360
-      - X: -740948864
-        Y: 0
-      - X: -370474432
-        Y: 0
     - - X: 679203136
         Y: -67524664
       - X: 493965920
@@ -5572,10 +5588,6 @@ CompositeCollider2D:
         Y: -270098688
   m_CompositePaths:
     m_Paths:
-    - - {x: -37.047474, y: 0}
-      - {x: -37.047474, y: 33.762337}
-      - {x: -74.09489, y: 33.762306}
-      - {x: -74.09486, y: 0}
     - - {x: 67.92028, y: -27.009869}
       - {x: 67.92028, y: -6.7524667}
       - {x: 49.39659, y: -6.7524962}
@@ -5611,6 +5623,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &1637502100
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637502093}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 686cfaf48e0a7564b8e3dc9a2ed2713e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!213 &1665615659
 Sprite:
   m_ObjectHideFlags: 0

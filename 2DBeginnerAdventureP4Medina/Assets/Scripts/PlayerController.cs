@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerControllerTutorialUpdates : MonoBehaviour
 {
     
-    public float speed = 7.0f;
+    public float speed = 8.0f;
     public int maxHealth = 5;
     public float timeInvicible = 2;
     public int health { get { return currentHealth; } }
@@ -27,7 +27,7 @@ public class PlayerControllerTutorialUpdates : MonoBehaviour
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
-        currentHealth = 1;
+        currentHealth = 5;
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 10;
     }
@@ -41,7 +41,7 @@ public class PlayerControllerTutorialUpdates : MonoBehaviour
         if (isInvincible)
         {
             invincibleTimer -= Time.deltaTime;
-            if (invincibleTimer < 0) ;
+            if (invincibleTimer < 0)
             { isInvincible = false;
             }
         }
@@ -53,6 +53,7 @@ public class PlayerControllerTutorialUpdates : MonoBehaviour
         Vector2 position = rigidbody2d.position;
         position.x = position.x + speed * horizontal * Time.deltaTime;
         position.y = position.y + speed * vertical * Time.deltaTime;
+
         rigidbody2d.MovePosition(position);
     }
     public void ChangeHealth(int amount)
