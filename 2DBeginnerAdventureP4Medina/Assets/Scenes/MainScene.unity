@@ -1438,6 +1438,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 581128171}
     m_Modifications:
+    - target: {fileID: 4632557836127778158, guid: 97955d26a2d8fdc4ea6de6d246e5abee,
+        type: 3}
+      propertyPath: m_UpdateMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4662240115867601389, guid: 97955d26a2d8fdc4ea6de6d246e5abee,
         type: 3}
       propertyPath: m_Name
@@ -7923,6 +7928,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 581128171}
     m_Modifications:
+    - target: {fileID: 4632557836127778158, guid: 97955d26a2d8fdc4ea6de6d246e5abee,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4662240115867601389, guid: 97955d26a2d8fdc4ea6de6d246e5abee,
         type: 3}
       propertyPath: m_Name
