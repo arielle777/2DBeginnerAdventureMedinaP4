@@ -28,6 +28,7 @@ public class PlayerControllerTutorialUpdates : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         rigidbody2d = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
         currentHealth = 5;

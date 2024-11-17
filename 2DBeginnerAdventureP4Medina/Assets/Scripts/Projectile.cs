@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        Application.targetFrameRate = 10;
         rigidbody2d = GetComponent<Rigidbody2D>();
     }
 
