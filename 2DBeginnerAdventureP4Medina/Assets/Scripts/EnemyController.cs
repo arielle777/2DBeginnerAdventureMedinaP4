@@ -7,6 +7,7 @@ using UnityEngine.UIElements;
 
 public class EnemyController : MonoBehaviour
 {
+    bool aggressive = true;
 
     public float speed = 3.0f;
     public bool vertical;
@@ -15,7 +16,7 @@ public class EnemyController : MonoBehaviour
     public ParticleSystem smokeEffect;
 
     Rigidbody2D rigidbody2d;
-    bool broken = true;
+    
 
     float timer;
     int direction = 1;
@@ -33,7 +34,7 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!broken)
+        if(!aggressive)
         {
             return;
         }
@@ -47,7 +48,7 @@ public class EnemyController : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (!broken) 
+        if (!aggressive) 
         { 
             return;
         }
@@ -80,7 +81,7 @@ public class EnemyController : MonoBehaviour
 
     public void Fix()
     {
-        broken = false;
+        aggressive = false;
         rigidbody2d.simulated = false;
         animator.SetTrigger("Fixed");
         smokeEffect.Stop();

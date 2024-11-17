@@ -103,7 +103,7 @@ MonoBehaviour:
   speed: 7
   maxHealth: 5
   timeInvicible: 5
-  projectilePrefab: {fileID: 4980833280377188213, guid: 9b530432ba482394ab07f23610041264,
+  projectilePrefab: {fileID: 6769322471942533513, guid: 9b530432ba482394ab07f23610041264,
     type: 3}
   LeftAction:
     m_Name: Left
@@ -112,7 +112,15 @@ MonoBehaviour:
     m_Id: d1f0d520-4fd9-4ae9-b607-ccd7398c8b3a
     m_Processors: 
     m_Interactions: 
-    m_SingletonActionBindings: []
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 83790c95-d40c-407a-908d-d138b9f8f8c3
+      m_Path: <Keyboard>/c
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Left
+      m_Flags: 0
     m_Flags: 0
 --- !u!50 &5997165817985170294
 Rigidbody2D:
