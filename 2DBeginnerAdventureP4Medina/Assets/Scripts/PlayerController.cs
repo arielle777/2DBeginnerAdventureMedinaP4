@@ -28,6 +28,7 @@ public class PlayerControllerTutorialUpdates : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         rigidbody2d = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
         currentHealth = 5;
@@ -91,7 +92,7 @@ public class PlayerControllerTutorialUpdates : MonoBehaviour
             invincibleTimer = timeInvicible;
         }
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-        Debug.Log(currentHealth + "/" + maxHealth);
+       UIHealthBar.instance.SetValue(currentHealth/(float) maxHealth);
     }
 
     void Launch()
