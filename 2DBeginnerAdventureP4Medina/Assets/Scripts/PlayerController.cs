@@ -34,7 +34,7 @@ public class PlayerControllerTutorialUpdates : MonoBehaviour
         currentHealth = 5;
         animator = GetComponent < Animator>();
         QualitySettings.vSyncCount = 0;
-        Application.targetFrameRate = 10;
+        Application.targetFrameRate = 1000;
     }
 
     // Update is called once per frame
@@ -97,7 +97,7 @@ public class PlayerControllerTutorialUpdates : MonoBehaviour
 
     void Launch()
     {
-        GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
+       GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
         Projectile projectile = projectileObject.GetComponent<Projectile>();
         projectile.Launch(lookDirection, 300);
 

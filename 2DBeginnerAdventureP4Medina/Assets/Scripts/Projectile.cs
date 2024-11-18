@@ -8,14 +8,14 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        Application.targetFrameRate = 10;
+       
         rigidbody2d = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.magnitude > 100.0f)
+        if(transform.position.magnitude > 1000.0f)
         {
             Destroy(gameObject);
         }
@@ -28,10 +28,10 @@ public class Projectile : MonoBehaviour
 
      void OnCollisionEnter2D(Collision2D other)
     {
-        EnemyController enemy = other.collider.GetComponent<EnemyController>();
-        if (enemy != null)
+        EnemyController e = other.collider.GetComponent<EnemyController>();
+        if (e != null)
         {
-            enemy.Fix();
+            e.Fix();
         }
 
         Destroy(gameObject);
