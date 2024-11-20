@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.InputSystem;
 
-public class PlayerControllerTutorialUpdates : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     
     public float speed = 8.0f;
