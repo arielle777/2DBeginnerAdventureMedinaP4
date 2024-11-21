@@ -6,7 +6,7 @@ public class NewBehaviourScript : MonoBehaviour
 {
    void OnTriggerEnter2D(Collider2D other)
     {
-        PlayerControllerTutorialUpdates  controller = other.GetComponent<PlayerControllerTutorialUpdates>();
+        PlayerController  controller = other.GetComponent<PlayerController>();
         if (controller != null)
         {
             if (controller.health < controller.maxHealth)

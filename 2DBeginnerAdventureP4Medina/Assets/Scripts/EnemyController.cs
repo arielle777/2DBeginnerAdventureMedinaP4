@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 
 public class EnemyController : MonoBehaviour
 {
-    bool aggressive = true;
+    bool broken = true;
 
     public float speed = 3.0f;
     public bool vertical;
@@ -34,10 +34,6 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!aggressive)
-        {
-            return;
-        }
 
         timer -= Time.deltaTime;
         if (timer < 0)
@@ -48,7 +44,7 @@ public class EnemyController : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (!aggressive) 
+        if (!broken) 
         { 
             return;
         }
@@ -70,18 +66,20 @@ public class EnemyController : MonoBehaviour
 
         rigidbody2d.MovePosition(position);
     }
+
     void OnCollisionEnter2D(Collision2D other)
     {
-        PlayerControllerTutorialUpdates player = other.gameObject.GetComponent<PlayerControllerTutorialUpdates>();
+        PlayerController player = other.gameObject.GetComponent<PlayerController>();
         if (player != null)
         {
             player.ChangeHealth(-1);
         }
     }
+    
 
     public void Fix()
     {
-        aggressive = false;
+        broken = false;
         rigidbody2d.simulated = false;
         animator.SetTrigger("Fixed");
         smokeEffect.Stop();
