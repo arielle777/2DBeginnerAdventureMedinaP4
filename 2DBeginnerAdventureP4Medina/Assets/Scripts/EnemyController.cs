@@ -66,8 +66,8 @@ public class EnemyController : MonoBehaviour
 
         rigidbody2d.MovePosition(position);
     }
-
-    void OnCollisionEnter2D(Collision2D other)
+   
+    void OnCollision2D(Collision2D other)
     {
         PlayerController player = other.gameObject.GetComponent<PlayerController>();
         if (player != null)
@@ -75,7 +75,9 @@ public class EnemyController : MonoBehaviour
         player.ChangeHealth(-1);
         }
     }
-   
+
+    
+
 
     public void Fix()
     {

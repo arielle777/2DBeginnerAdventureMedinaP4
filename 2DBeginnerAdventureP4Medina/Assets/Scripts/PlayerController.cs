@@ -26,6 +26,9 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     Vector2 lookDirection = new Vector2(1, 0);
 
+    AudioSource audioSource;
+    public AudioClip throwSound;
+    public AudioClip hitSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +37,8 @@ public class PlayerController : MonoBehaviour
         currentHealth = maxHealth;
         currentHealth = 4;
         animator = GetComponent<Animator>();
+
+        audioSource = GetComponent<AudioSource>();
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 1000;
     }
@@ -80,7 +85,7 @@ public class PlayerController : MonoBehaviour
 
             }
         }
-
+    }
         void FixedUpdate()
         {
 
@@ -104,6 +109,7 @@ public class PlayerController : MonoBehaviour
                 }
                 isInvincible = true;
                 invincibleTimer = timeInvicible;
+            PlaySound(hitSound);
             }
             currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
             UIHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
@@ -116,10 +122,11 @@ public class PlayerController : MonoBehaviour
             projectile.Launch(lookDirection, 300);
 
             animator.SetTrigger("Launch");
+        PlaySound(throwSound);
         }
+
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
-}
-
-    
-
-
+    }
