@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public int maxHealth = 5;
     public float timeInvicible = 2.0f;
 
+
     public GameObject projectilePrefab;
     public int health { get { return currentHealth; } }
     int currentHealth;
@@ -71,7 +72,7 @@ public class PlayerController : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, lookDirection, 1.5f, LayerMask.GetMask("NPC"));
             if (hit.collider != null)
             {
-                NonPlayerCharacter charcater = hit.collider.getComponent<NonPlayerCharacter>();
+                NonPlayerCharacter character = hit.collider.GetComponent<NonPlayerCharacter>();
                 if (character != null)
                 {
                     character.DisplayDialog();
@@ -89,7 +90,9 @@ public class PlayerController : MonoBehaviour
 
             rigidbody2d.MovePosition(position);
         }
-        void ChangeHealth(int amount)
+
+        public void ChangeHealth(int amount)
+
         {
             if (amount < 0)
             {
